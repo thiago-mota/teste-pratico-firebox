@@ -1,0 +1,25 @@
+{
+  "name": "teste-pratico-firebox",
+  "version": "1.0.0",
+  "description": "API desenvolvida como teste técnico da firebox",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiago-mota/teste-pratico-firebox.git"
+  },
+  "keywords": [
+    "API",
+    "CRUD",
+    "todolist",
+    "teste"
+  ],
+  "author": "Thiago Mota",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thiago-mota/teste-pratico-firebox/issues"
+  },
+  "homepage": "https://github.com/thiago-mota/teste-pratico-firebox#readme"
+}
