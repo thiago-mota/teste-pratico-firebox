@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/thiago-mota/teste-pratico-firebox/issues"
   },
-  "homepage": "https://github.com/thiago-mota/teste-pratico-firebox#readme"
+  "homepage": "https://github.com/thiago-mota/teste-pratico-firebox#readme",
+  "devDependencies": {
+    "eslint-config-trybe-backend": "^2.1.0"
+  }
 }
