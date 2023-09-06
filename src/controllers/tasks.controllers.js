@@ -21,12 +21,20 @@ const createTask = async (request, response) => {
 const getTaskById = async (request, response) => {
 	const { id } = request.params;
 	const task = await taskService.getTaskById(id);
-
 	return response.status(StatusCodes.OK).json({ message: task });
+};
+
+const deleteTaskById = async (request, response) => {
+	const { id } = request.params;
+	await taskService.deleteTaskById(id);
+	return response
+		.status(StatusCodes.NO_CONTENT)
+		.json({ message: 'Task successfully deleted' });
 };
 
 module.exports = {
 	findAllTasks,
 	createTask,
 	getTaskById,
+	deleteTaskById,
 };
