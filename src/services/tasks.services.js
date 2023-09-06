@@ -6,8 +6,9 @@ const findAllTasks = async () => {
 };
 
 const createTask = async (name, description, data) => {
-	const newTask = await taskModel.createTask(name, description, data);
-	return newTask;
+	await taskModel.createTask(name, description, data);
+	const lastInsertedTask = await taskModel.getLastInsertedTask();
+	return lastInsertedTask;
 };
 
 module.exports = {
