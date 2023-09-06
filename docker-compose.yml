@@ -24,7 +24,7 @@ services:
       MYSQL_PASSWORD: password
       MYSQL_PORT: 3306
       MYSQL_HOST: database # Nome do service que será utilizado para o banco de dados
-      PORT: 3002
+      PORT: 3001
 
   # Serviço rodando o banco de dados
   database:
