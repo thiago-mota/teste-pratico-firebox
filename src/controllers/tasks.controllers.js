@@ -6,6 +6,13 @@ const findAllTasks = async (_request, response) => {
 	return response.status(StatusCodes.OK).json(allTasks);
 };
 
+const createTask = async (request, response) => {
+	const { name, description, data } = request.body;
+	const newTask = await taskService.createTask(name, description, data);
+	return response.status(StatusCodes.CREATED).json({ message: newTask });
+};
+
 module.exports = {
 	findAllTasks,
+	createTask,
 };
