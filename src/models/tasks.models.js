@@ -21,7 +21,7 @@ const getLastInsertedTask = async () => {
 };
 
 const getTaskById = async (id) => {
-	const [task] = await connection.execute('SELECT * FROM todo WHERE id = ?', [
+	const [task] = await connection.execute('SELECT * FROM todo WHERE Id = ?', [
 		id,
 	]);
 	return task;
@@ -34,10 +34,19 @@ const deleteTaskById = async (id) => {
 	return deletedTask;
 };
 
+const updateTaskById = async (id, name, description, data) => {
+	const [updatedTask] = await connection.execute(
+		'UPDATE todo SET name = ?, description = ?, data = ? WHERE Id = ?',
+		[name, description, data, id],
+	);
+	return updatedTask;
+};
+
 module.exports = {
 	findAll,
 	createTask,
 	getLastInsertedTask,
 	getTaskById,
 	deleteTaskById,
+	updateTaskById,
 };
