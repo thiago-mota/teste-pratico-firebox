@@ -27,9 +27,7 @@ const getTaskById = async (request, response) => {
 const deleteTaskById = async (request, response) => {
 	const { id } = request.params;
 	await taskService.deleteTaskById(id);
-	return response
-		.status(StatusCodes.NO_CONTENT)
-		.json({ message: 'Task successfully deleted' });
+	return response.status(StatusCodes.NO_CONTENT).json();
 };
 
 module.exports = {
