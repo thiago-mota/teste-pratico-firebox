@@ -18,13 +18,13 @@ services:
       - database
     ports:
       # Expõe a porta padrão da aplicação: altere aqui caso use outra porta
-      - 3002:3002
+      - 3001:3001
     environment:
       MYSQL_USER: root
       MYSQL_PASSWORD: password
       MYSQL_PORT: 3306
       MYSQL_HOST: database # Nome do service que será utilizado para o banco de dados
-      PORT: 3002
+      PORT: 3001
 
   # Serviço rodando o banco de dados
   database:
