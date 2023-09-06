@@ -15,13 +15,21 @@ const createTask = async (name, description, data) => {
 
 const getLastInsertedTask = async () => {
 	const [[lastInsertedTask]] = await connection.execute(
-		'SELECT * FROM todo where Id=(SELECT LAST_INSERT_ID());',
+		'SELECT * FROM todo WHERE Id=(SELECT LAST_INSERT_ID());',
 	);
 	return lastInsertedTask;
+};
+
+const getTaskById = async (id) => {
+	const [task] = await connection.execute('SELECT * FROM todo WHERE id = ?', [
+		id,
+	]);
+	return task;
 };
 
 module.exports = {
 	findAll,
 	createTask,
 	getLastInsertedTask,
+	getTaskById,
 };
