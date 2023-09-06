@@ -30,9 +30,22 @@ const deleteTaskById = async (request, response) => {
 	return response.status(StatusCodes.NO_CONTENT).json();
 };
 
+const updateTaskById = async (request, response) => {
+	const { name, description, data } = request.body;
+	const { id } = request.params;
+	const updatedTask = await taskService.updateTaskById(
+		id,
+		name,
+		description,
+		data,
+	);
+	return response.status(StatusCodes.OK).json({ message: updatedTask });
+};
+
 module.exports = {
 	findAllTasks,
 	createTask,
 	getTaskById,
 	deleteTaskById,
+	updateTaskById,
 };
