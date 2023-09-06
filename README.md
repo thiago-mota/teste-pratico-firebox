@@ -13,9 +13,6 @@ Aqui você encontra os detalhes e instruções de como rodar e ter acesso a apli
 
 - `git clone git@github.com:thiago-mota/teste-pratico-firebox.git`
 
-- Entre na pasta do repositório que você acabou de clonar:
-  - `cd teste-pratico-firebox`
-
 2. Entre na pasta do repositório que você acabou de clonar:
 
    - `cd teste-pratico-firebox`
