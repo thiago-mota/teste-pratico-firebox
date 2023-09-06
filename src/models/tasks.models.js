@@ -10,16 +10,18 @@ const createTask = async (name, description, data) => {
 		'INSERT INTO todo (name, description, data) VALUES (?, ?, ?)',
 		[name, description, data],
 	);
+	return createNewTask;
+};
 
-	const [[newTask]] = await connection.execute(
-		'SELECT * FROM todo WHERE id = ?',
-		[createNewTask.insertId],
+const getLastInsertedTask = async () => {
+	const [[lastInsertedTask]] = await connection.execute(
+		'SELECT * FROM todo where Id=(SELECT LAST_INSERT_ID());',
 	);
-
-	return newTask;
+	return lastInsertedTask;
 };
 
 module.exports = {
 	findAll,
 	createTask,
+	getLastInsertedTask,
 };
