@@ -11,7 +11,13 @@ const createTask = async (name, description, data) => {
 	return lastInsertedTask;
 };
 
+const getTaskById = async (id) => {
+	const task = await taskModel.getTaskById(id);
+	return task;
+};
+
 module.exports = {
 	findAllTasks,
 	createTask,
+	getTaskById,
 };
