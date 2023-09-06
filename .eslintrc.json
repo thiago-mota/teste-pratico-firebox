@@ -5,6 +5,7 @@
   },
   "extends": "trybe-backend",
   "rules": {
+    "no-tabs": "off",
     "sonarjs/no-duplicate-string": [
       "error",
       5
