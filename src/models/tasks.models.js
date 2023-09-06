@@ -27,9 +27,17 @@ const getTaskById = async (id) => {
 	return task;
 };
 
+const deleteTaskById = async (id) => {
+	const deletedTask = await connection.execute('DELETE FROM todo WHERE Id= ?', [
+		id,
+	]);
+	return deletedTask;
+};
+
 module.exports = {
 	findAll,
 	createTask,
 	getLastInsertedTask,
 	getTaskById,
+	deleteTaskById,
 };
