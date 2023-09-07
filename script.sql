@@ -6,16 +6,7 @@ CREATE DATABASE todolistdb;
 USE todolistdb;
 
 -- Excluindo as tabelas se as mesmas existirem
-DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS todo;
-
--- Criando a tabela users
-CREATE TABLE IF NOT EXISTS users (
-  id INTEGER NOT NULL AUTO_INCREMENT,
-  name VARCHAR(100),
-  email VARCHAR(100),
-  PRIMARY KEY (id)
-);
 
 -- Criando a tabela todo
 CREATE TABLE IF NOT EXISTS todo (
@@ -26,12 +17,9 @@ CREATE TABLE IF NOT EXISTS todo (
   PRIMARY KEY (id)
 );
 
--- Pré populando a tabela users
-INSERT INTO users (name, email) VALUES 
-	('admin', 'admin@admin.com'),
-  ('user', 'user@user.com');
-
-
 -- Pré populando a tabela todo
 INSERT INTO todo (name, description, data) VALUES 
-	('to-do task 1', 'this is the first task', '2023-09-05 18:41:35');
+	('Business Meeting', 'Business meeting with XPTO employees', '2023-09-06 04:04:04'),
+	('Medical appointment', 'Tomorrow morning, Dr. Dohn Doe', '2023-09-07 02:02:02'),
+	('Pvzinho b-day', 'yeee lets party hard baby', '2023-09-08 13:05:00');
+
