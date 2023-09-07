@@ -8,7 +8,7 @@ const {
 const tasksRouter = express.Router();
 
 tasksRouter.get('/', taskController.findAllTasks);
-tasksRouter.get('/:id', taskController.getTaskById);
+tasksRouter.get('/:id', validateTask, taskController.getTaskById);
 tasksRouter.post('/', validateFields, taskController.createTask);
 tasksRouter.delete('/:id', validateTask, taskController.deleteTaskById);
 tasksRouter.put('/:id', validateFields, taskController.updateTaskById);
