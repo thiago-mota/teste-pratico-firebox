@@ -1,4 +1,5 @@
 const { StatusCodes } = require('http-status-codes');
+const { taskService } = require('../../services');
 
 const validateFields = async (request, response, next) => {
 	const { name, description, data } = request.body;
@@ -10,6 +11,18 @@ const validateFields = async (request, response, next) => {
 	next();
 };
 
+const validateTask = async (request, response, next) => {
+	const { id } = request.params;
+	const findTask = await taskService.getTaskById(id);
+	if (!findTask.length) {
+		return response
+			.status(StatusCodes.BAD_REQUEST)
+			.json({ message: 'Task does not exist' });
+	}
+	next();
+};
+
 module.exports = {
 	validateFields,
+	validateTask,
 };
