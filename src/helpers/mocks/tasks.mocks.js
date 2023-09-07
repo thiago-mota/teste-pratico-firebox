@@ -21,6 +21,18 @@ const expectedTasks = {
 	],
 };
 
+const expectedSingleTask = {
+	tasks: [
+		{
+			id: 1,
+			name: 'to-do task 1',
+			description: 'this is the first task',
+			data: '2023-09-05T18:41:35.000Z',
+		},
+	],
+};
+
 module.exports = {
 	expectedTasks,
+	expectedSingleTask,
 };
