@@ -10,7 +10,13 @@ const getSingleTask = async () => {
 	return response;
 };
 
+const createTask = async () => {
+	const response = await axios.post('http://localhost:3001/');
+	return response;
+};
+
 module.exports = {
 	getAllTasks,
 	getSingleTask,
+	createTask,
 };
