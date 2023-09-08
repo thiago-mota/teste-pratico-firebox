@@ -5,11 +5,14 @@ const {
 	expectedTasks,
 	expectedSingleTask,
 	newTask,
+	taskToUpdate,
+	updatedTask,
 } = require('../helpers/mocks/tasks.mocks');
 const {
 	getAllTasks,
 	getSingleTask,
 	createTask,
+	updateTask,
 } = require('../helpers/axios/axios.fetchs');
 
 const mock = new AxiosMockAdapter(axios);
@@ -64,6 +67,22 @@ describe('Task Controller', () => {
 			name: 'Zoo day with the Kids',
 			description: 'Remember to bring water and sun protector',
 			data: '2023-09-15T08:30:35.000Z',
+		});
+	});
+
+	it('PUT/ -> should return status 200', async () => {
+		mock.onPut('http://localhost:3001/2').reply(200, updatedTask);
+		const response = await updateTask();
+
+		const { status, data } = response;
+		const { task } = data;
+
+		expect(status).toBe(200);
+		expect(task[0]).not.toBe(taskToUpdate);
+		expect(task[0]).toMatchObject({
+			name: 'This is an updated task',
+			description: 'this task was sucessfully updated',
+			data: '2023-09-06 07:07:07',
 		});
 	});
 });
