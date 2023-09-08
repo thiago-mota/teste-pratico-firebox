@@ -43,8 +43,31 @@ const newTask = {
 	],
 };
 
+const taskToUpdate = {
+	task: [
+		{
+			id: 2,
+			name: 'Medical appointment',
+			description: 'Tomorrow morning, Dr. Dohn Doe',
+			data: '2023-09-06T02:02:02.000Z',
+		},
+	],
+};
+
+const updatedTask = {
+	task: [
+		{
+			name: 'This is an updated task',
+			description: 'this task was sucessfully updated',
+			data: '2023-09-06 07:07:07',
+		},
+	],
+};
+
 module.exports = {
 	expectedTasks,
 	expectedSingleTask,
 	newTask,
+	taskToUpdate,
+	updatedTask,
 };
