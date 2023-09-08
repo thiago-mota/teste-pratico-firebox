@@ -1,19 +1,19 @@
 const expectedTasks = {
 	tasks: [
 		{
-			id: 49,
+			id: 1,
 			name: 'Business Meeting',
 			description: 'Business meeting with XPTO employees',
 			data: '2023-09-06T01:01:01.000Z',
 		},
 		{
-			id: 50,
+			id: 2,
 			name: 'Medical appointment',
 			description: 'Tomorrow morning, Dr. Dohn Doe',
 			data: '2023-09-06T02:02:02.000Z',
 		},
 		{
-			id: 51,
+			id: 3,
 			name: 'Pvzinho b-day',
 			description: 'yeee lets party hard baby',
 			data: '2023-09-06T04:04:04.000Z',
@@ -25,9 +25,41 @@ const expectedSingleTask = {
 	tasks: [
 		{
 			id: 1,
-			name: 'to-do task 1',
-			description: 'this is the first task',
-			data: '2023-09-05T18:41:35.000Z',
+			name: 'Business Meeting',
+			description: 'Business meeting with XPTO employees',
+			data: '2023-09-06T01:01:01.000Z',
+		},
+	],
+};
+
+const newTask = {
+	tasks: [
+		{
+			id: 4,
+			name: 'Zoo day with the Kids',
+			description: 'Remember to bring water and sun protector',
+			data: '2023-09-15T08:30:35.000Z',
+		},
+	],
+};
+
+const taskToUpdate = {
+	task: [
+		{
+			id: 2,
+			name: 'Medical appointment',
+			description: 'Tomorrow morning, Dr. Dohn Doe',
+			data: '2023-09-06T02:02:02.000Z',
+		},
+	],
+};
+
+const updatedTask = {
+	task: [
+		{
+			name: 'This is an updated task',
+			description: 'this task was sucessfully updated',
+			data: '2023-09-06 07:07:07',
 		},
 	],
 };
@@ -35,4 +67,7 @@ const expectedSingleTask = {
 module.exports = {
 	expectedTasks,
 	expectedSingleTask,
+	newTask,
+	taskToUpdate,
+	updatedTask,
 };
