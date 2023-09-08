@@ -21,9 +21,15 @@ const updateTask = async () => {
 	return response;
 };
 
+const deleteTask = async () => {
+	const response = await axios.delete('http://localhost:3001/1');
+	return response;
+};
+
 module.exports = {
 	getAllTasks,
 	getSingleTask,
 	createTask,
 	updateTask,
+	deleteTask,
 };
