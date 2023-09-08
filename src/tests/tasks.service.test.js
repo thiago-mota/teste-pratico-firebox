@@ -3,7 +3,6 @@ const {
 	expectedTasks,
 	expectedSingleTask,
 	newTask,
-	createTaskData,
 } = require('../helpers/mocks/tasks.mocks');
 
 const { taskService } = require('../services');
@@ -50,11 +49,14 @@ describe('Task Service', () => {
 	});
 
 	it('should create a new Task', async () => {
-		const { name, description, data } = createTaskData;
+		const { tasks } = newTask;
+		const [{ name, description, data }] = tasks;
 		getLastInsertedMock.mockResolvedValue(newTask);
 		const createdTask = await taskService.createTask(name, description, data);
 
 		expect(createTaskMock).toHaveBeenCalledWith(name, description, data);
 		expect(createdTask).toEqual(newTask);
 	});
+
+	it('should update a task', async () => {});
 });

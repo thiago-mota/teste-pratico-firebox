@@ -43,12 +43,6 @@ const newTask = {
 	],
 };
 
-const createTaskData = {
-	name: 'This is an updated task',
-	description: 'this task was sucessfully updated',
-	data: '2023-09-06 07:07:07',
-};
-
 const taskToUpdate = {
 	task: [
 		{
@@ -76,5 +70,4 @@ module.exports = {
 	newTask,
 	taskToUpdate,
 	updatedTask,
-	createTaskData,
 };
