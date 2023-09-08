@@ -13,6 +13,7 @@ const {
 	getSingleTask,
 	createTask,
 	updateTask,
+	deleteTask,
 } = require('../helpers/axios/axios.fetchs');
 
 const mock = new AxiosMockAdapter(axios);
@@ -70,7 +71,7 @@ describe('Task Controller', () => {
 		});
 	});
 
-	it('PUT/ -> should return status 200', async () => {
+	it('PUT/:id -> should return status 200', async () => {
 		mock.onPut('http://localhost:3001/2').reply(200, updatedTask);
 		const response = await updateTask();
 
@@ -84,5 +85,13 @@ describe('Task Controller', () => {
 			description: 'this task was sucessfully updated',
 			data: '2023-09-06 07:07:07',
 		});
+	});
+
+	it('DELETE/:id -> should return status 204', async () => {
+		mock.onDelete('http://localhost:3001/1').reply(204);
+		const response = await deleteTask();
+
+		const { status } = response;
+		expect(status).toBe(204);
 	});
 });
