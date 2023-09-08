@@ -4,10 +4,10 @@
 
 Aqui você encontra os detalhes e instruções de como rodar e ter acesso a aplicação desenvolvida como teste técnico da Firebox Software Solutions.
 
-### Primeiros passos
+### 🪜 Primeiros passos
 
 <details open>
-  <summary>Guia de Instalação </summary>
+  <summary>Guia de Instalação:</summary>
 
 1. Clone o repositório do projeto:
 
@@ -32,4 +32,22 @@ Aqui você encontra os detalhes e instruções de como rodar e ter acesso a apli
 
 5. Inicialize o servidor:
     - `npm run debug`
+</details>
+
+
+### 🧪 Testando a aplicação
+<details open>
+  <summary> Rodando os testes:</summary>
+
+  1. Abra um novo terminal e conecte-se ao terminal interativo do container `todolist`:
+      - `docker exec -it todolist bash`
+  2. Para os testes de back-end basta rodar o script padrão do jest:
+      - `npm test`
+  - Caso você queira verificar a cobertura de testes, basta rodar o seguinte script:
+      - `npm run coverage`
+  - A camada model não está sendo considerada no coverage.
+  3. ⚠️ Os testes do front-end serão feitos com Cypress, mais informações em breve.
+
+    
+
 </details>
