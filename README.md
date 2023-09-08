@@ -15,10 +15,8 @@ Aqui você encontra os detalhes e instruções de como rodar e ter acesso a apli
 
 2. Entre na pasta do repositório que você acabou de clonar:
 
-   - `cd teste-pratico-firebox`
-
 3. Inicialize os serviços node e db:
-   - `docker compose up -d`
+   - `docker-compose up -d --build`
 
 - Verifique se as portas definidas no docker-compose não estão sendo utilizadas. Se necessário, altere as portas de acordo com sua disponibilidade.
 
@@ -33,6 +31,5 @@ Aqui você encontra os detalhes e instruções de como rodar e ter acesso a apli
   - `npm install`
 
 5. Inicialize o servidor:
-
-- `npm run debug`
+    - `npm run debug`
 </details>
