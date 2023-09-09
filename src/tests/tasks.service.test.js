@@ -12,13 +12,7 @@ describe('Task Service', () => {
 	const findAllMock = jest.fn();
 	const getTaskByIdMock = jest.fn();
 	const createTaskMock = jest.fn();
-	/* o payload do createTask traz informações da interação com o banco e não os dados da nova atividade inserida no DB.
-	O mock getLastInsertedMock está mockando a função que está dentro de createTask e que busca no DB os dados da atividade adicionada
-	*/
-	const getLastInsertedMock = jest.fn(async (_name, _description, _data) => {
-		const lastInsertedTask = await taskModel.getLastInsertedTask();
-		return lastInsertedTask;
-	});
+	const getLastInsertedMock = jest.fn();
 
 	beforeEach(() => {
 		taskModel.findAll = findAllMock;
@@ -52,11 +46,12 @@ describe('Task Service', () => {
 		const { tasks } = newTask;
 		const [{ name, description, data }] = tasks;
 		getLastInsertedMock.mockResolvedValue(newTask);
+
 		const createdTask = await taskService.createTask(name, description, data);
 
 		expect(createTaskMock).toHaveBeenCalledWith(name, description, data);
 		expect(createdTask).toEqual(newTask);
 	});
 
-	it('should update a task', async () => {});
+	it('should return the task created', async () => {});
 });

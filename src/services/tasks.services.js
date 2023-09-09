@@ -5,10 +5,15 @@ const findAllTasks = async () => {
 	return tasks;
 };
 
+const lastInsertedTask = async () => {
+	const lastInserted = await taskModel.getLastInsertedTask();
+	return lastInserted;
+};
+
 const createTask = async (name, description, data) => {
 	await taskModel.createTask(name, description, data);
-	const lastInsertedTask = await taskModel.getLastInsertedTask();
-	return lastInsertedTask;
+	const newTask = await lastInsertedTask();
+	return newTask;
 };
 
 const getTaskById = async (id) => {
@@ -33,4 +38,5 @@ module.exports = {
 	getTaskById,
 	deleteTaskById,
 	updateTaskById,
+	lastInsertedTask,
 };
