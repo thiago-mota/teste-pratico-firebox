@@ -1,13 +1,11 @@
 version: '3'
 
 services:
-  # Serviço que irá rodar o node
+  # Serviço que irá rodar o backend
   node:
     image: node:16.14
     container_name: backend
-    # Mesmo que `docker run -t`
     tty: true
-    # Mesmo que `docker run -i`
     stdin_open: true
     command: bash
     restart: always
@@ -17,7 +15,6 @@ services:
     depends_on:
       - database
     ports:
-      # Expõe a porta padrão da aplicação: altere aqui caso use outra porta
       - 3001:3001
     environment:
       MYSQL_USER: root
@@ -25,6 +22,19 @@ services:
       MYSQL_PORT: 3306
       MYSQL_HOST: database # Nome do service que será utilizado para o banco de dados
       PORT: 3001
+
+ # Serviço que irá rodar o frontend
+  frontend:
+    image: node:16.14
+    container_name: frontend
+    tty: true
+    stdin_open: true
+    restart: always
+    working_dir: /home/node/app/frontend
+    volumes:
+      - ./frontend:/home/node/app/frontend
+    ports:
+      - 80:3000 # Redirecionar a porta 3000 do Node.js para a porta 80 no host
 
   # Serviço rodando o banco de dados
   database:
