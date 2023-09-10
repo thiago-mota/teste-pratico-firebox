@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import moment from 'moment';
+import 'moment/locale/pt-br';
+moment.locale('pt-br');
 
 const Tasks = () => {
 	const [tasks, setTasks] = useState([]);
@@ -8,20 +11,17 @@ const Tasks = () => {
 		const fetchData = async () => {
 			const result = await axios.get('http://localhost:3001');
 			const { tasks } = result.data;
-			console.log(tasks);
 			setTasks(tasks);
 		};
 		fetchData();
 	}, []);
 
-	console.log('ESTADO --->>', tasks);
-
 	return (
 		<section>
-			Suas atividades
+			Suas tarefas
 			{tasks.map((task, index) => (
 				<div key={index}>
-					Nome: {task.name}, Descrição: {task.description}, Data: {task.data}
+					{task.name}: {task.description}, {moment(task.data).format('LLLL')}
 				</div>
 			))}
 		</section>
