@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import moment from 'moment';
 import 'moment/locale/pt-br';
+import { Trash } from '@phosphor-icons/react';
 moment.locale('pt-br');
 
 const Tasks = () => {
@@ -28,7 +29,7 @@ const Tasks = () => {
 	};
 
 	return (
-		<section className='flex flex-col items-center justify-start'>
+		<section className='flex flex-col items-center'>
 			<h1 className='text-white'>Suas tarefas</h1>
 			{tasks.map((task, index) => (
 				<div
@@ -38,6 +39,15 @@ const Tasks = () => {
 					className='text-white'
 				>
 					{task.name}: {task.description}, {moment(task.data).format('LLLL')}
+					<button
+						type='button'
+						id='deleteTask'
+						name='deleteTask'
+						className='border-black bg-black rounded-xl'
+						onClick={() => console.log('xablau')}
+					>
+						<Trash size={16} />
+					</button>
 				</div>
 			))}
 		</section>
