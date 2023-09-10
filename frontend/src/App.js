@@ -1,27 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header';
+import Form from './components/Form';
 
-function App() {
+const App = () => {
 	return (
-		<div className='App'>
-			<header className='App-header'>
-				<img
-					src={logo}
-					className='App-logo'
-					alt='logo'
-				/>
-				<p>SERVIDOR FRONT SUBIU MACACADA</p>
-				<a
-					className='App-link'
-					href='https://reactjs.org'
-					target='_blank'
-					rel='noopener noreferrer'
-				>
-					Learn React
-				</a>
-			</header>
+		<div className='bg-neutral-800 min-h-screen'>
+			<Header />
+			<Form />
 		</div>
 	);
-}
-
+};
 export default App;

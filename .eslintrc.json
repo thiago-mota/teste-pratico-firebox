@@ -3,7 +3,7 @@
   "env": {
     "es2020": true
   },
-  "extends": "trybe-backend",
+  "extends": ["trybe-backend", "@trybe/eslint-config-frontend"],
   "rules": {
     "no-tabs": "off",
     "sonarjs/no-duplicate-string": [
