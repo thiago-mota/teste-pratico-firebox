@@ -39,26 +39,36 @@ const Form = () => {
 					action='http://localhost:3001/'
 					onSubmit={handleOnSubmit}
 				>
-					<input
-						type='text'
-						id='newTaskDescription'
-						name='newTaskDescription'
-						placeholder='Adicione uma nova tarefa'
-						className='text-gray-400 border-black bg-neutral-600 h-12 rounded-lg mb-2'
-					/>
-					<div className='flex flex-col items-center'>
+					<label htmlFor='newTaskName'>
+						Nome:
 						<input
 							type='text'
 							id='newTaskName'
 							name='newTaskName'
-							placeholder='Nomeie sua tarefa'
+							placeholder='Levar os meninos à praia'
 							className='text-gray-400 border-black bg-neutral-600 h-12 rounded-lg mb-2'
 						/>
-						<input
-							type='datetime-local'
-							id='newTaskDate'
-							name='newTaskDate'
-						/>
+					</label>
+
+					<div className='flex flex-col items-center'>
+						<label htmlFor='newTaskDescription'>
+							Descrição:
+							<input
+								type='text'
+								id='newTaskDescription'
+								name='newTaskDescription'
+								placeholder='Lembrar de levar protetor...'
+								className='text-gray-400 border-black bg-neutral-600 h-12 rounded-lg mb-2'
+							/>
+						</label>
+						<label htmlFor='newTaskDate'>
+							Data:
+							<input
+								type='datetime-local'
+								id='newTaskDate'
+								name='newTaskDate'
+							/>
+						</label>
 					</div>
 					<button
 						type='submit'
@@ -66,7 +76,7 @@ const Form = () => {
 						name='newTask'
 						className='text-gray-400 border-black bg-white h-12 rounded-lg mt-2'
 					>
-						Adicionar
+						Adicionar nova tarefa
 					</button>
 				</form>
 			</div>
