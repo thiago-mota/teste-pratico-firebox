@@ -1,6 +1,12 @@
-import React from 'react';
-import './App.css';
-function App() {
-	return <div className='App'>Hello World! Starting a to-do List</div>;
-}
+import Header from './components/Header';
+import Form from './components/Form';
+
+const App = () => {
+	return (
+		<div className='bg-neutral-800 min-h-screen'>
+			<Header />
+			<Form />
+		</div>
+	);
+};
 export default App;
