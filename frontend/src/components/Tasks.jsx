@@ -9,47 +9,61 @@ const Tasks = () => {
 	const [tasks, setTasks] = useState([]);
 
 	useEffect(() => {
-		const fetchData = async () => {
-			const result = await axios.get('http://localhost:3001');
-			const { tasks } = result.data;
+		const fetchTasks = async () => {
+			const localTasks = JSON.parse(localStorage.getItem('tasks'));
 
-			const addsCompletedKey = tasks.map((task) => ({
-				...task,
-				completed: false,
-			}));
-			setTasks(addsCompletedKey);
+			if (localTasks) {
+				setTasks(localTasks);
+			} else {
+				const result = await axios.get('http://localhost:3001');
+				const { tasks } = result.data;
+
+				const addsCompletedKey = tasks.map((task) => ({
+					...task,
+					completed: false,
+				}));
+				setTasks(addsCompletedKey);
+				localStorage.setItem('tasks', JSON.stringify(addsCompletedKey));
+			}
 		};
-		fetchData();
+
+		fetchTasks();
 	}, []);
 
 	const setCompleted = (index) => {
 		const updatedTasks = [...tasks];
 		updatedTasks[index].completed = !updatedTasks[index].completed;
 		setTasks(updatedTasks);
+
+		localStorage.setItem('tasks', JSON.stringify(updatedTasks));
 	};
 
 	return (
 		<section className='flex flex-col items-center'>
 			<h1 className='text-white'>Suas tarefas</h1>
-			{tasks.map((task, index) => (
-				<div
-					key={index}
-					onClick={() => setCompleted(index)}
-					style={{ textDecoration: task.completed ? 'line-through' : 'none' }}
-					className='text-white'
-				>
-					{task.name}: {task.description}, {moment(task.data).format('LLLL')}
-					<button
-						type='button'
-						id='deleteTask'
-						name='deleteTask'
-						className='border-black bg-black rounded-xl'
-						onClick={() => console.log('xablau')}
+			<div>
+				{tasks.map((task, index) => (
+					<div
+						key={index}
+						onClick={() => setCompleted(index)}
+						style={{ textDecoration: task.completed ? 'line-through' : 'none' }}
+						className='text-white'
 					>
-						<Trash size={16} />
-					</button>
-				</div>
-			))}
+						{task.name}: {task.description}, {moment(task.data).format('LLLL')}
+						{task.completed && (
+							<button
+								type='button'
+								id='deleteTask'
+								name='deleteTask'
+								className='border-black bg-black rounded-xl'
+								onClick={() => console.log('xablau')}
+							>
+								<Trash size={16} />
+							</button>
+						)}
+					</div>
+				))}
+			</div>
 		</section>
 	);
 };
