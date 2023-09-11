@@ -31,11 +31,10 @@ Docker | Node | MySQL | Express | axios | Jest | React | Tailwind |
 4. Instalando as dependências do projeto:
 
 - ⚠️ Todos os comandos contidos no `package-json` devem ser executados **DENTRO** do containeres.
+</details>
 
 <details open>
 <summary> Instalando e inicializando o backend: </summary>
-</details>
-
 1. Conecte-se ao terminal interativo do container `backend`:
 
    - `docker exec -it backend bash`
@@ -49,7 +48,6 @@ Docker | Node | MySQL | Express | axios | Jest | React | Tailwind |
 
 <details open>
 <summary> Instalando e inicializando o frontend </summary>
-</details>
 
 1. Conecte-se ao terminal interativo do container `frontend`:
 
@@ -61,6 +59,9 @@ Docker | Node | MySQL | Express | axios | Jest | React | Tailwind |
 
 3. Inicialize o servidor: - `npm start`
 </details>
+</details>
+
+
 
 ### 🧪 Testando a aplicação
 
