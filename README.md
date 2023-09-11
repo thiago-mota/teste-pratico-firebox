@@ -21,7 +21,7 @@ Docker | Node | MySQL | Express | axios | Jest | React | Tailwind |
 
 2. Entre na pasta do repositório que você acabou de clonar:
 
-3. Verifique se as portas definidas no docker-compose não estão sendo utilizadas. Se necessário, altere as portas de acordo com sua disponibilidade.
+3. Verifique se as portas definidas no docker-compose estão sendo utilizadas. Se necessário, altere as portas de acordo com sua disponibilidade.
 
 4. Inicialize os serviços node e db:
    - `docker-compose up -d --build`
