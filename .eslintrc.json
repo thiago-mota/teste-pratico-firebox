@@ -3,7 +3,7 @@
   "env": {
     "es2020": true
   },
-  "extends": ["trybe-backend", "@trybe/eslint-config-frontend"],
+  "extends": ["trybe-backend", "@trybe/eslint-config-frontend", "plugin:cypress/recommended"],
   "rules": {
     "no-tabs": "off",
     "sonarjs/no-duplicate-string": [
