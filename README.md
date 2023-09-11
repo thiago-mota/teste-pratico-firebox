@@ -4,7 +4,7 @@
 
 Aqui você encontra as instruções para rodar e testar a aplicação desenvolvida como teste técnico da Firebox Software Solutions.
 
-O projeto consiste no desenvolvimento de uma API que sirva como gerenciador de tarefas capaz de criar, marcar como concluída e remover tarefas da lista.
+O projeto consiste no desenvolvimento de uma API que sirva como gerenciador de tarefas capaz de criar, marcar como concluída e remover tarefas da lista de tarefas.
 
 Principais tecnologias e libs utilizadas para o desenvolvimento do projeto:
 <br>
@@ -21,24 +21,24 @@ Docker | Node | MySQL | Express | axios | Jest | React | Tailwind |
 
 2. Entre na pasta do repositório que você acabou de clonar:
 
-3. Inicialize os serviços node e db:
-   - `docker-compose up --build`
+3. Verifique se as portas definidas no docker-compose não estão sendo utilizadas. Se necessário, altere as portas de acordo com sua disponibilidade.
 
-4. Aguarde a instalação das dependencias e a criação dos servidores.
+4. Inicialize os serviços node e db:
+   - `docker-compose up -d --build`
 
-- Verifique se as portas definidas no docker-compose não estão sendo utilizadas. Se necessário, altere as portas de acordo com sua disponibilidade.
+5. Aguarde a instalação das dependencias e a criação dos servidores. Isso pode levar algum tempo.
 
-- Esses serviços irão inicializar três serviços chamados `backend`, `frontend` e `todolist_db`.
-
+- Esses serviços irão inicializar três containeres chamados `backend`, `frontend` e `todolist_db`.
 - ⚠️ Todos os comandos contidos nos `package-json` devem ser executados **DENTRO** do containeres.
+</details>
 
 ### Instalando as dependências do projeto e inicializando os servidores:
-   As dependências necessárias para utilização do projeto serão instaladas automaticamente após a utilização do comando `docker-compose up --build`. Ainda assim, havendo a necessidade de instalar novas dependências ou de se conectar diretamente aos terminais interativos dos containeres novamente, siga os passos abaixo:
+   As dependências necessárias para utilização do projeto serão instaladas automaticamente após a utilização do comando `docker-compose up --build`. Ainda assim, havendo a necessidade de instalar novas dependências ou se conectar diretamente aos terminais interativos dos containeres novamente, siga os passos abaixo:
 
-</details>
 
 <details open>
 <summary> Instalando e inicializando o backend: </summary>
+
 1. Conecte-se ao terminal interativo do container `backend`:
 
    - `docker exec -it backend bash`
@@ -63,8 +63,6 @@ Docker | Node | MySQL | Express | axios | Jest | React | Tailwind |
 
 3. Inicialize o servidor: - `npm start`
 </details>
-</details>
-
 
 
 ### 🧪 Testando a aplicação

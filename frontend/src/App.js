@@ -18,10 +18,15 @@ const App = () => {
 	};
 
 	return (
-		<div className='bg-neutral-800 min-h-screen'>
+		<div className='bg-neutral-800 min-h-screen flex flex-col'>
 			<Header />
-			<Form />
+			<Form
+				tasks={tasks}
+				setTasks={setTasks}
+				fetchData={fetchData}
+			/>
 			<Tasks
+				fetchData={fetchData}
 				tasks={tasks}
 				setTasks={setTasks}
 			/>
