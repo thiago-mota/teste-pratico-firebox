@@ -3,7 +3,7 @@ import * as Icon from '@phosphor-icons/react';
 const Header = () => {
 	return (
 		<header>
-			<div className='flex items-center justify-center h-96 bg-black '>
+			<div className='flex items-center justify-center h-48'>
 				<Icon.ListChecks className='text-sky-400 text-4xl font-bold' />
 				&nbsp;&nbsp;&nbsp;
 				<h1 className=' text-4xl font-bold p-15'>
