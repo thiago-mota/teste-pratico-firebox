@@ -17,10 +17,3 @@ CREATE TABLE IF NOT EXISTS todo (
   status BOOLEAN,
   PRIMARY KEY (id)
 );
-
--- Pré populando a tabela todo
-INSERT INTO todo (name, description, data, status) VALUES 
-	('Business Meeting', 'Business meeting with XPTO employees', '2023-09-06 04:04:04', true),
-	('Medical appointment', 'Tomorrow morning, Dr. Dohn Doe', '2023-09-07 02:02:02', false),
-	('Pvzinho b-day', 'yeee lets party hard baby', '2023-09-08 13:05:00', false);
-
