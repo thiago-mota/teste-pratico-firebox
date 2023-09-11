@@ -7,7 +7,7 @@ services:
     container_name: backend
     tty: true
     stdin_open: true
-    command: bash
+    command: bash -c "npm install && npm run debug"
     restart: always
     working_dir: /home/node/app/backend
     volumes:
@@ -35,6 +35,7 @@ services:
       - ./frontend:/home/node/app/frontend
     ports:
       - 80:3000 # Redirecionar a porta 3000 do Node.js para a porta 80 no host
+    command: bash -c "npm install && npm start"
 
   # Serviço rodando o banco de dados
   database:
