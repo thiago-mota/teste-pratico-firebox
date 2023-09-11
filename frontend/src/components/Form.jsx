@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import axios from 'axios';
 
 const Form = () => {
@@ -9,9 +8,10 @@ const Form = () => {
 			name: event.target.newTaskName.value,
 			description: event.target.newTaskDescription.value,
 			data: event.target.newTaskDate.value,
+			status: false,
 		};
 
-		const { name, description, data } = formData;
+		const { name, description, data, status } = formData;
 
 		try {
 			if (!name || !description || !data) {
@@ -23,6 +23,7 @@ const Form = () => {
 				name,
 				description,
 				data,
+				status,
 			});
 		} catch (error) {
 			alert(error.message);
