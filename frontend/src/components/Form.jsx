@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const Form = () => {
+const Form = ({ tasks, setTasks }) => {
 	const handleOnSubmit = async (event) => {
 		event.preventDefault();
 
@@ -25,6 +25,12 @@ const Form = () => {
 				data,
 				status,
 			});
+
+			const newTaskAdded = [...tasks, formData];
+			setTasks(newTaskAdded);
+
+			console.log(tasks);
+			console.log(formData);
 		} catch (error) {
 			alert(error.message);
 			console.error('Erro ao enviar o formulário:', error.message);

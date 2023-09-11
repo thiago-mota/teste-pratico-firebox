@@ -20,7 +20,10 @@ const App = () => {
 	return (
 		<div className='bg-neutral-800 min-h-screen'>
 			<Header />
-			<Form />
+			<Form
+				tasks={tasks}
+				setTasks={setTasks}
+			/>
 			<Tasks
 				tasks={tasks}
 				setTasks={setTasks}
