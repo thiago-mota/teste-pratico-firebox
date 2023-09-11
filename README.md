@@ -22,20 +22,23 @@ Docker | Node | MySQL | Express | axios | Jest | React | Tailwind |
 2. Entre na pasta do repositório que você acabou de clonar:
 
 3. Inicialize os serviços node e db:
-   - `docker-compose up -d --build`
+   - `docker-compose up --build`
+
+4. Aguarde a instalação das dependencias e a criação dos servidores.
 
 - Verifique se as portas definidas no docker-compose não estão sendo utilizadas. Se necessário, altere as portas de acordo com sua disponibilidade.
 
 - Esses serviços irão inicializar três serviços chamados `backend`, `frontend` e `todolist_db`.
 
-4. Instalando as dependências do projeto:
+- ⚠️ Todos os comandos contidos nos `package-json` devem ser executados **DENTRO** do containeres.
 
-- ⚠️ Todos os comandos contidos no `package-json` devem ser executados **DENTRO** do containeres.
+### Instalando as dependências do projeto e inicializando os servidores:
+   As dependências necessárias para utilização do projeto serão instaladas automaticamente após a utilização do comando `docker-compose up --build`. Ainda assim, havendo a necessidade de instalar novas dependências ou de se conectar diretamente aos terminais interativos dos containeres novamente, siga os passos abaixo:
+
+</details>
 
 <details open>
 <summary> Instalando e inicializando o backend: </summary>
-</details>
-
 1. Conecte-se ao terminal interativo do container `backend`:
 
    - `docker exec -it backend bash`
@@ -49,7 +52,6 @@ Docker | Node | MySQL | Express | axios | Jest | React | Tailwind |
 
 <details open>
 <summary> Instalando e inicializando o frontend </summary>
-</details>
 
 1. Conecte-se ao terminal interativo do container `frontend`:
 
@@ -61,6 +63,9 @@ Docker | Node | MySQL | Express | axios | Jest | React | Tailwind |
 
 3. Inicialize o servidor: - `npm start`
 </details>
+</details>
+
+
 
 ### 🧪 Testando a aplicação
 

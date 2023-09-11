@@ -5,10 +5,10 @@ const findAll = async () => {
 	return tasks;
 };
 
-const createTask = async (name, description, data) => {
+const createTask = async (name, description, data, status) => {
 	const [createNewTask] = await connection.execute(
-		'INSERT INTO todo (name, description, data) VALUES (?, ?, ?)',
-		[name, description, data],
+		'INSERT INTO todo (name, description, data, status) VALUES (?, ?, ?, ?)',
+		[name, description, data, status],
 	);
 	return createNewTask;
 };
@@ -34,10 +34,10 @@ const deleteTaskById = async (id) => {
 	return deletedTask;
 };
 
-const updateTaskById = async (id, name, description, data) => {
+const updateTaskById = async (id, name, description, data, status) => {
 	const [updatedTask] = await connection.execute(
-		'UPDATE todo SET name = ?, description = ?, data = ? WHERE Id = ?',
-		[name, description, data, id],
+		`UPDATE todo SET name = ?, description = ?, data = ?, status = ? WHERE Id = ?`,
+		[name, description, data, status, id],
 	);
 	return updatedTask;
 };

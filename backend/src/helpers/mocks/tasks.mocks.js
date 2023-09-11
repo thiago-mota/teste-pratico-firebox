@@ -39,6 +39,7 @@ const newTask = {
 			name: 'Zoo day with the Kids',
 			description: 'Remember to bring water and sun protector',
 			data: '2023-09-15T08:30:35.000Z',
+			status: 1,
 		},
 	],
 };

@@ -7,11 +7,12 @@ const findAllTasks = async (_request, response) => {
 };
 
 const createTask = async (request, response) => {
-	const { name, description, data } = request.body;
+	const { name, description, data, status } = request.body;
 	const lastInsertedTask = await taskService.createTask(
 		name,
 		description,
 		data,
+		status,
 	);
 	return response
 		.status(StatusCodes.CREATED)
@@ -31,13 +32,14 @@ const deleteTaskById = async (request, response) => {
 };
 
 const updateTaskById = async (request, response) => {
-	const { name, description, data } = request.body;
+	const { name, description, data, status } = request.body;
 	const { id } = request.params;
 	const updatedTask = await taskService.updateTaskById(
 		id,
 		name,
 		description,
 		data,
+		status,
 	);
 	return response.status(StatusCodes.OK).json({ message: updatedTask });
 };

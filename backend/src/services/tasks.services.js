@@ -10,8 +10,8 @@ const lastInsertedTask = async () => {
 	return lastInserted;
 };
 
-const createTask = async (name, description, data) => {
-	await taskModel.createTask(name, description, data);
+const createTask = async (name, description, data, status) => {
+	await taskModel.createTask(name, description, data, status);
 	const newTask = await lastInsertedTask();
 	return newTask;
 };
@@ -26,8 +26,8 @@ const deleteTaskById = async (id) => {
 	return deletedTask;
 };
 
-const updateTaskById = async (id, name, description, data) => {
-	await taskModel.updateTaskById(id, name, description, data);
+const updateTaskById = async (id, name, description, data, status) => {
+	await taskModel.updateTaskById(id, name, description, data, status);
 	const updatedTask = await taskModel.getTaskById(id);
 	return updatedTask;
 };

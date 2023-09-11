@@ -44,12 +44,22 @@ describe('Task Service', () => {
 
 	it('should create a new Task', async () => {
 		const { tasks } = newTask;
-		const [{ name, description, data }] = tasks;
+		const [{ name, description, data, status }] = tasks;
 		getLastInsertedMock.mockResolvedValue(newTask);
 
-		const createdTask = await taskService.createTask(name, description, data);
+		const createdTask = await taskService.createTask(
+			name,
+			description,
+			data,
+			status,
+		);
 
-		expect(createTaskMock).toHaveBeenCalledWith(name, description, data);
+		expect(createTaskMock).toHaveBeenCalledWith(
+			name,
+			description,
+			data,
+			status,
+		);
 		expect(createdTask).toEqual(newTask);
 	});
 
