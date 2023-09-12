@@ -3,6 +3,8 @@ const {
 	expectedTasks,
 	expectedSingleTask,
 	newTask,
+	taskToUpdate,
+	updatedTask,
 } = require('../helpers/mocks/tasks.mocks');
 
 const { taskService } = require('../services');
@@ -13,12 +15,16 @@ describe('Task Service', () => {
 	const getTaskByIdMock = jest.fn();
 	const createTaskMock = jest.fn();
 	const getLastInsertedMock = jest.fn();
+	const deleteTaskByIdMock = jest.fn();
+	const updateTaskByIdMock = jest.fn();
 
 	beforeEach(() => {
 		taskModel.findAll = findAllMock;
 		taskModel.getTaskById = getTaskByIdMock;
 		taskModel.createTask = createTaskMock;
 		taskModel.getLastInsertedTask = getLastInsertedMock;
+		taskModel.deleteTaskById = deleteTaskByIdMock;
+		taskModel.updateTaskById = updateTaskByIdMock;
 	});
 
 	afterEach(() => {
@@ -63,5 +69,21 @@ describe('Task Service', () => {
 		expect(createdTask).toEqual(newTask);
 	});
 
-	it('should return the task created', async () => {});
+	it('should delete a task', async () => {
+		const taskIdToDelete = 1;
+		deleteTaskByIdMock.mockResolvedValue(undefined);
+		const result = await taskService.deleteTaskById(taskIdToDelete);
+
+		expect(deleteTaskByIdMock).toHaveBeenCalledWith(taskIdToDelete);
+		expect(result).toBeUndefined();
+	});
+
+	it('should update a task', async () => {
+		getTaskByIdMock.mockResolvedValue(updatedTask);
+
+		const result = await taskService.updateTaskById(updatedTask);
+
+		expect(getTaskByIdMock).toHaveBeenCalledWith(updatedTask);
+		expect(result).toEqual(updatedTask);
+	});
 });
