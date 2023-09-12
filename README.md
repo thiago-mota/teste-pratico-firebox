@@ -21,7 +21,6 @@ Principais tecnologias e libs utilizadas para o desenvolvimento do projeto:
 - Docker: [Instalação do Docker](https://docs.docker.com/get-docker/)
 - Git: [Instalação do Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 <br>
-<br>
 
 <details open>
   <summary>Guia de Instalação:</summary>
@@ -92,12 +91,12 @@ A aplicação é testada de forma abrangente para garantir um funcionamento est�
 - Para verificar a cobertura de testes, basta rodar o seguinte script:
   - `npm run coverage`
 
-#### Arquivo de Teste: Task Service
+#### Arquivo de Teste: `Task Service`
 
 - **Testa funções de serviço**: Aborda funções relacionadas a tarefas, como busca, criação, exclusão e atualização.
 - **Cobre operações básicas**: Testa casos como busca de tarefas, criação de novas tarefas e atualização/exclusão de tarefas existentes.
 
-#### Arquivo de Teste: Task Controller
+#### Arquivo de Teste: `Task Controller`
 - **Testa controladores da API**: Concentra-se nos controladores da API que lidam com chamadas HTTP.
 - **Valida endpoints HTTP**: Testa as rotas HTTP, incluindo busca, criação, atualização e exclusão de tarefas.
 - **Garante integridade dos dados**: Verifica se os dados retornados e criados estão corretos em relação às ações da API.
