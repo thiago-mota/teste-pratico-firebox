@@ -51,6 +51,7 @@ const taskToUpdate = {
 			name: 'Medical appointment',
 			description: 'Tomorrow morning, Dr. Dohn Doe',
 			data: '2023-09-06T02:02:02.000Z',
+			status: 0,
 		},
 	],
 };
@@ -58,9 +59,11 @@ const taskToUpdate = {
 const updatedTask = {
 	task: [
 		{
+			id: 2,
 			name: 'This is an updated task',
 			description: 'this task was sucessfully updated',
 			data: '2023-09-06 07:07:07',
+			status: 0,
 		},
 	],
 };
