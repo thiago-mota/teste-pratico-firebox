@@ -1,43 +1,57 @@
-# 🚧🚧 README UNDER CONSTRUCTION 🚧🚧
-
-## Bem vindo ao repositório do To-do list.
+##  To-do List, Guia de Configuração e Uso ✔︎✔︎✔︎
 
 Aqui você encontra as instruções para rodar e testar a aplicação desenvolvida como teste técnico da Firebox Software Solutions.
 
 O projeto consiste no desenvolvimento de uma API que sirva como gerenciador de tarefas capaz de criar, marcar como concluída e remover tarefas da lista de tarefas.
 
 Principais tecnologias e libs utilizadas para o desenvolvimento do projeto:
-<br>
-Docker | Node | MySQL | Express | axios | Jest | React | Tailwind |
+- Docker
+- Node
+- MySQL
+- Express
+- Axios
+- Jest
+- React
+- Tailwind
 
 ### 🪜 Primeiros passos
+
+**Pré-requisitos do Sistema**:
+
+- Docker: [Instalação do Docker](https://docs.docker.com/get-docker/)
+- Git: [Instalação do Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+<br>
+<br>
 
 <details open>
   <summary>Guia de Instalação:</summary>
 
 1. Clone o repositório do projeto:
 
-- `git clone git@github.com:thiago-mota/teste-pratico-firebox.git`
+   - `git clone git@github.com:thiago-mota/teste-pratico-firebox.git`
 
 2. Entre na pasta do repositório que você acabou de clonar:
+   - `cd teste-pratico-firebox`
 
-3. Verifique se as portas definidas no docker-compose estão sendo utilizadas. Se necessário, altere as portas de acordo com sua disponibilidade.
+3. Verifique se as portas definidas no docker-compose estão sendo utilizadas. Se necessário, altere as portas conforme sua disponibilidade.
 
-4. Inicialize os serviços node e db:
+4. Crie e inicie os contêineres:
    - `docker-compose up -d --build`
 
-5. Aguarde a instalação das dependencias e a criação dos servidores. Isso pode levar algum tempo.
+5. Aguarde a instalação das dependências e a criação dos servidores. Isso pode levar algum tempo.
 
-- Esses serviços irão inicializar três containeres chamados `backend`, `frontend` e `todolist_db`.
-- ⚠️ Todos os comandos contidos nos `package-json` devem ser executados **DENTRO** do containeres.
+- Esses serviços irão inicializar três contêineres chamados `backend`, `frontend` e `todolist_db`.
+- ⚠️ **Importante**: Certifique-se de executar todos os comandos contidos nos `package.json` **DENTRO** dos contêineres.
 </details>
 
 ### Instalando as dependências do projeto e inicializando os servidores:
-   As dependências necessárias para utilização do projeto serão instaladas automaticamente após a utilização do comando `docker-compose up --build`. Ainda assim, havendo a necessidade de instalar novas dependências ou se conectar diretamente aos terminais interativos dos containeres novamente, siga os passos abaixo:
+   As dependências necessárias para utilização do projeto serão instaladas automaticamente após a utilização do comando `docker-compose up --build`. 
+
+   Havendo a necessidade de conectar-se diretamente aos terminais interativos dos contêineres, instalar as dependências ou inicializar os servidores novamente, siga os passos abaixo:
 
 
 <details open>
-<summary> Instalando e inicializando o backend: </summary>
+<summary> Para o backend: </summary>
 
 1. Conecte-se ao terminal interativo do container `backend`:
 
@@ -51,7 +65,7 @@ Docker | Node | MySQL | Express | axios | Jest | React | Tailwind |
 </details>
 
 <details open>
-<summary> Instalando e inicializando o frontend </summary>
+<summary> Para o frontend: </summary>
 
 1. Conecte-se ao terminal interativo do container `frontend`:
 
@@ -67,8 +81,8 @@ Docker | Node | MySQL | Express | axios | Jest | React | Tailwind |
 
 ### 🧪 Testando a aplicação
 
-<details open>
-  <summary> Rodando os testes do backend:</summary>
+A aplicação é testada de forma abrangente para garantir um funcionamento estável e confiável. Os testes abrangem cenários essenciais para garantir o funcionamento adequado da aplicação, desde a manipulação de dados até a integração com a API.
+
 
 1. Abra um novo terminal e conecte-se ao terminal interativo do container `backend`:
    - `docker exec -it backend bash`
@@ -77,11 +91,13 @@ Docker | Node | MySQL | Express | axios | Jest | React | Tailwind |
 
 - Para verificar a cobertura de testes, basta rodar o seguinte script:
   - `npm run coverage`
-- A camada model não está sendo considerada no coverage.
-</details>
 
-<details open>
-<summary>Rodando os testes do frontend:</summary>
-  ⚠️ Os testes do front-end serão feitos com Cypress, mais informações em breve.
+#### Arquivo de Teste: Task Service
 
-</details>
+- **Testa funções de serviço**: Aborda funções relacionadas a tarefas, como busca, criação, exclusão e atualização.
+- **Cobre operações básicas**: Testa casos como busca de tarefas, criação de novas tarefas e atualização/exclusão de tarefas existentes.
+
+#### Arquivo de Teste: Task Controller
+- **Testa controladores da API**: Concentra-se nos controladores da API que lidam com chamadas HTTP.
+- **Valida endpoints HTTP**: Testa as rotas HTTP, incluindo busca, criação, atualização e exclusão de tarefas.
+- **Garante integridade dos dados**: Verifica se os dados retornados e criados estão corretos em relação às ações da API.
