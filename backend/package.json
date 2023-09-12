@@ -4,8 +4,8 @@
   "description": "API desenvolvida como teste técnico da firebox",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "coverage": "jest --coverage",
+    "test": "jest --verbose",
+    "coverage": "jest --coverage --verbose",
     "start": "node src/server.js",
     "debug": "nodemon --ignore coverage src/server.js"
   },
