@@ -71,7 +71,7 @@ describe('Task Controller', () => {
 		});
 	});
 
-	it('PUT/:id -> should return status 200', async () => {
+	it('PUT/:id -> should return status 200 and update an existing task', async () => {
 		mock.onPut('http://localhost:3001/2').reply(200, updatedTask);
 		const response = await updateTask();
 
